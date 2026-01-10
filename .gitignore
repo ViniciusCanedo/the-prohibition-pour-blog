@@ -1,0 +1,6 @@
+node_modules
+.orchids
+.nuxt
+.output
+.vscode
+.data
