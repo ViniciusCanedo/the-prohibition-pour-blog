@@ -1,11 +1,6 @@
 {
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "strict": false,
-    "noEmit": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"]
-    }
+    "strict": false
   }
 }
