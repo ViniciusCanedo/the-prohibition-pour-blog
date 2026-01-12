@@ -11,12 +11,12 @@ import QuickActions from "~/components/chat/QuickActions.vue";
 const chatStore = useChatStore();
 const chatBodyRef = ref<HTMLElement | null>(null);
 
-  const isInitial = computed(() => chatStore.messages.length === 0);
-  
-  useHead({
-    title: computed(() =>
-      isInitial.value ? "Hick | Seu Bartender Digital" : "Hick | Chat"
-    ),
+const isInitial = computed(() => chatStore.messages.length === 0);
+
+useHead({
+  title: computed(() =>
+    isInitial.value ? "Hick | Seu Bartender Digital" : "Hick | Chat"
+  ),
   bodyAttrs: {
     class: computed(() =>
       isInitial.value ? "overflow-hidden h-[100dvh]" : ""
@@ -96,16 +96,16 @@ definePageMeta({
       <nav
         v-motion
         :initial="{ opacity: 0, y: -20 }"
-        :enter="{ 
-          opacity: 1, 
+        :enter="{
+          opacity: 1,
           y: 0,
           transition: {
             duration: 800,
             delay: 100,
             type: 'spring',
             stiffness: 100,
-            damping: 20
-          }
+            damping: 20,
+          },
         }"
         class="w-full py-4 px-6 flex items-center justify-between z-50 transition-all duration-300 sticky top-0"
         :class="
@@ -114,11 +114,15 @@ definePageMeta({
             : 'border-b border-semantic-border/30 bg-semantic-background/80 backdrop-blur-md'
         "
       >
-        <div 
+        <div
           class="flex items-center gap-4"
           v-motion
           :initial="{ opacity: 0, x: -10 }"
-          :enter="{ opacity: 1, x: 0, transition: { delay: 300, duration: 600 } }"
+          :enter="{
+            opacity: 1,
+            x: 0,
+            transition: { delay: 300, duration: 600 },
+          }"
         >
           <NuxtLink
             to="/"
@@ -131,15 +135,19 @@ definePageMeta({
             <span class="uppercase tracking-widest font-medium"
               >Voltar ao site</span
             >
-            </NuxtLink>
-          </div>
+          </NuxtLink>
+        </div>
 
         <button
           v-if="!isInitial"
           @click="resetChat"
           v-motion
           :initial="{ opacity: 0, x: 10 }"
-          :enter="{ opacity: 1, x: 0, transition: { delay: 300, duration: 600 } }"
+          :enter="{
+            opacity: 1,
+            x: 0,
+            transition: { delay: 300, duration: 600 },
+          }"
           class="text-xs font-body text-semantic-secondaryText/60 hover:text-semantic-highlight transition-colors flex items-center gap-1.5"
           title="Nova Conversa"
         >
@@ -162,7 +170,9 @@ definePageMeta({
               class="text-xs font-body text-semantic-secondaryText/60 hover:text-semantic-highlight transition-all flex items-center gap-2 group"
             >
               <ArrowLeft class="w-5 h-5 md:w-4 md:h-4" />
-              <span class="uppercase tracking-widest font-medium">Voltar ao site</span>
+              <span class="uppercase tracking-widest font-medium"
+                >Voltar ao site</span
+              >
             </NuxtLink>
           </div>
         </nav>
@@ -219,16 +229,16 @@ definePageMeta({
       <div
         v-motion
         :initial="{ opacity: 0, y: 30 }"
-        :enter="{ 
-          opacity: 1, 
+        :enter="{
+          opacity: 1,
           y: 0,
           transition: {
             duration: 1000,
             delay: 200,
             type: 'spring',
             stiffness: 80,
-            damping: 15
-          }
+            damping: 15,
+          },
         }"
         :class="[
           'w-full z-40 bg-gradient-to-t from-semantic-background via-semantic-background to-transparent px-6',
@@ -267,49 +277,3 @@ definePageMeta({
     </ClientOnly>
   </div>
 </template>
-
-<style scoped>
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(198, 154, 72, 0.2) transparent;
-}
-
-/* Page transitions */
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.fade-slide-enter-from {
-  opacity: 0;
-  transform: translateY(15px) scale(0.99);
-}
-
-.fade-slide-leave-to {
-  opacity: 0;
-  transform: translateY(-15px) scale(0.99);
-}
-
-/* Message list transitions */
-.message-list-move,
-.message-list-enter-active,
-.message-list-leave-active {
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.message-list-enter-from {
-  opacity: 0;
-  transform: translateY(20px) scale(0.98);
-}
-
-.message-list-leave-to {
-  opacity: 0;
-  transform: scale(0.98);
-}
-
-/* Ensure moving elements don't snap */
-.message-list-leave-active {
-  position: absolute;
-  width: 100%;
-}
-</style>
