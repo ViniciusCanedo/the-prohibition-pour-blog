@@ -40,9 +40,9 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   app: {
     head: {
-      title: 'The Prohibition Pour | Craft Cocktails & Speakeasy Culture',
+      title: 'The Prohibition Pour | Um Guia para Artesãos da Coquetelaria',
       meta: [
-        { name: 'description', content: 'Vintage soul, modern technique. Discover refined cocktail recipes and intelligent tools for the modern bartender.' }
+        { name: 'description', content: 'Alma vintage, técnica moderna. Descubra as receitas de seus drinks favoritos e embarque no mundo da mixologia clássica e contemporânea.' }
       ],
       htmlAttrs: {
         lang: 'pt_BR',
