@@ -331,7 +331,6 @@ useHead({
                 class="group"
               >
                 <motion.div
-                  :while-hover="{ scale: 1.02 }"
                   :transition="{ duration: 0.3 }"
                   class="bg-semantic-card/40 backdrop-blur-md rounded-2xl overflow-hidden border border-semantic-border hover:border-semantic-highlight/50 transition-all duration-300"
                 >
